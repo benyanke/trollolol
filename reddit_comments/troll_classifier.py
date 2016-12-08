@@ -77,13 +77,21 @@ def convert_content_to_vector(content, feature_words):
 def test_troll_classifier(model, test_data):
     return model.predict(test_data[0])
 
-
+    /*
+    * it_is_a_troll appears to be the final classification function.
+    * Once the model has been trained, new comments are passed to this
+    * function to see where they fall on the troll-scale given the
+    * training of the model.
+    */
 def it_is_a_troll(model, feature_words, content):
     feature_vector = convert_content_to_vector(content, feature_words)
     prediction = model.predict(feature_vector)
     return True if prediction == 1 else False
 
-
+    /*
+    * load_troll_classification_model appears to be the method
+    * to train the model.
+    */
 def load_troll_classification_model():
     logger.info("TRAINING CLASSIFICATION MODEL")
     feature_words = parse_file(settings.TROLL_WORDS)
