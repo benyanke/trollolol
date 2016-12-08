@@ -6,11 +6,11 @@ import settings
 import logging
 logger = logging.getLogger(__name__)
 
-    /*
-    * parse_file is a wrapper. It loops through each line in
-    * the filename passed to it, and sends it to the defined function
-    * with the feature_words as a parameter.
-    */
+    """
+    parse_file is a wrapper. It loops through each line in
+    the filename passed to it, and sends it to the defined function
+    with the feature_words as a parameter.
+    """
 def parse_file(filename, func=None, feature_words=None):
     """
     Parses a file into data and returns a numpy array
@@ -40,20 +40,20 @@ def parse_file(filename, func=None, feature_words=None):
         data_set.append(contents)
         return data_set
 
-    /*
-    * Another training function for the model. Still unclear
-    * on bigger picture
-    */
+    """
+    Another training function for the model. Still unclear
+    on bigger picture
+    """
 def train_troll_classifier(words, training_data):
     linear_svc = svm.LinearSVC()
     linear_svc.fit_transform(training_data[0], training_data[1])
     return linear_svc
 
-    /*
-    * Loops through the feature_words, and sets up an array (vector).
-    * The array contains a 1 or a 0 for each feature word. A 1 if the
-    * comment contains the feature word, and a 0 if it doesn't. -BY
-    */
+    """
+    Loops through the feature_words, and sets up an array (vector).
+    The array contains a 1 or a 0 for each feature word. A 1 if the
+    comment contains the feature word, and a 0 if it doesn't. -BY
+    """
 def parse_insult_data_set_line(line, feature_words):
     feature_vector = [0 for x in xrange(len(feature_words))]
     cols = line.split(",")
@@ -80,21 +80,21 @@ def convert_content_to_vector(content, feature_words):
 def test_troll_classifier(model, test_data):
     return model.predict(test_data[0])
 
-    /*
-    * it_is_a_troll appears to be the final classification function.
-    * Once the model has been trained, new comments are passed to this
-    * function to see where they fall on the troll-scale given the
-    * training of the model.
-    */
+    """
+    it_is_a_troll appears to be the final classification function.
+    Once the model has been trained, new comments are passed to this
+    function to see where they fall on the troll-scale given the
+    training of the model.
+    """
 def it_is_a_troll(model, feature_words, content):
     feature_vector = convert_content_to_vector(content, feature_words)
     prediction = model.predict(feature_vector)
     return True if prediction == 1 else False
 
-    /*
-    * load_troll_classification_model appears to be the method
-    * to train the model.
-    */
+    """
+    load_troll_classification_model appears to be the method
+    to train the model.
+    """
 def load_troll_classification_model():
     logger.info("TRAINING CLASSIFICATION MODEL")
     feature_words = parse_file(settings.TROLL_WORDS)
