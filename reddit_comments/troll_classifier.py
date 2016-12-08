@@ -6,7 +6,11 @@ import settings
 import logging
 logger = logging.getLogger(__name__)
 
-
+    /*
+    * parse_file is a wrapper. It loops through each line in
+    * the filename passed to it, and sends it to the defined function
+    * with the feature_words as a parameter.
+    */
 def parse_file(filename, func=None, feature_words=None):
     """
     Parses a file into data and returns a numpy array
@@ -42,7 +46,11 @@ def train_troll_classifier(words, training_data):
     linear_svc.fit_transform(training_data[0], training_data[1])
     return linear_svc
 
-
+    /*
+    * Loops through the feature_words, and sets up an array (vector).
+    * The array contains a 1 or a 0 for each feature word. A 1 if the
+    * comment contains the feature word, and a 0 if it doesn't. -BY
+    */
 def parse_insult_data_set_line(line, feature_words):
     feature_vector = [0 for x in xrange(len(feature_words))]
     cols = line.split(",")
