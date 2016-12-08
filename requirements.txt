@@ -17,7 +17,8 @@ django-supervisor==0.2.7
 kombu==2.2.0
 meld3==0.6.9
 mogo==0.2.1
-numpy==1.7.0rc1.dev-ea23de8
+# numpy==1.7.0rc1.dev-ea23de8
+numpy==1.7.0
 ordereddict==1.1
 pathtools==0.1.2
 praw==1.0.12
@@ -25,7 +26,8 @@ pymongo==2.3
 python-dateutil==1.5
 pytz==2012d
 scikit-learn==0.11
-scipy==0.11.0rc2
+#scipy==0.11.0rc2
+scipy==0.11.0
 six==1.2.0
 supervisor==3.0a12
 watchdog==0.5.4
