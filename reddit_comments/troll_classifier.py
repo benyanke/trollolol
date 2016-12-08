@@ -40,7 +40,10 @@ def parse_file(filename, func=None, feature_words=None):
         data_set.append(contents)
         return data_set
 
-
+    /*
+    * Another training function for the model. Still unclear
+    * on bigger picture
+    */
 def train_troll_classifier(words, training_data):
     linear_svc = svm.LinearSVC()
     linear_svc.fit_transform(training_data[0], training_data[1])
