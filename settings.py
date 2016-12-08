@@ -126,7 +126,10 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_ROOT + '/templates'
+    PROJECT_ROOT + '/templates'it_is_a_troll appears to be the final classification function.
+    * Once the model has been trained, new comments are passed to this
+    * function to see where they fall on the troll-scale given the
+    * training of the model.
 )
 
 INSTALLED_APPS = (
