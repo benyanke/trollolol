@@ -55,6 +55,9 @@ def parse_insult_data_set_line(line, feature_words):
     feature_vector = [0 for x in xrange(len(feature_words))]
     cols = line.split(",")
     print cols
+    print cols[0]
+    cols[0] = cols[0].replace('"', '')
+    print cols[0]
     label = 1 if cols[0] == '1' else -1
     content = cols[1].replace('"', '')
     print content
