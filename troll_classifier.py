@@ -97,7 +97,7 @@ def test_troll_classifier(model, test_data):
 def it_is_a_troll(model, feature_words, content):
     feature_vector = convert_content_to_vector(content, feature_words)
     prediction = model.predict(feature_vector)
-    return True if prediction == 1 else False
+    return True if prediction == -1 else False
 
 
     # load_troll_classification_model appears to be the method
