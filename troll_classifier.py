@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import numpy as np
 import sys
 from sklearn import svm
@@ -70,7 +72,7 @@ def parse_insult_data_set_line(line, feature_words):
     #        if word == feature:
     #            feature_vector[index] = 1
     #return np.array(feature_vector), label, content
-  
+
     return convert_content_to_vector(content, feature_words), label, content
 
 

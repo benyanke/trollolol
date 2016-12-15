@@ -1,0 +1,51 @@
+['"troll comment?"', '"comment content"\n']
+"troll comment?"
+troll comment?
+comment content
+
+['"-1"', '"This is a trollish comment."\n']
+"-1"
+-1
+This is a trollish comment.
+
+['"1"', '"This is a normal comment"\n']
+"1"
+1
+This is a normal comment
+
+['"-1"', '"another troll comment"\n']
+"-1"
+-1
+another troll comment
+
+['""', '"Trollish comment"\n']
+""
+
+Trollish comment
+
+['""', '"Not a trollish comment"\n']
+""
+
+Not a trollish comment
+
+['""', '"Have a nice day"\n']
+""
+
+Have a nice day
+
+['""', '"Die in a hole"\n']
+""
+
+Die in a hole
+
+finished parsing files
+[array([[0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0]]), array([-1, -1,  1, -1]), ['comment content\n', 'This is a trollish comment.\n', 'This is a normal comment\n', 'another troll comment\n']]
+[array([[0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0],
+       [0, 0, 0, ..., 0, 0, 0]]), array([-1, -1, -1, -1]), ['Trollish comment\n', 'Not a trollish comment\n', 'Have a nice day\n', 'Die in a hole\n']]
+[-1 -1 -1 -1]
+{'loss': 'squared_hinge', 'C': 1.0, 'verbose': 0, 'intercept_scaling': 1, 'fit_intercept': True, 'max_iter': 1000, 'penalty': 'l2', 'multi_class': 'ovr', 'random_state': None, 'dual': True, 'tol': 0.0001, 'class_weight': None}
