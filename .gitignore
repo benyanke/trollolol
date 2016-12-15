@@ -12,8 +12,6 @@ Icon?
 *.sql.gz
 *~
 nohup.out
-csv/
-*.csv
 # Thumbnails
 ._*
 .noseids
