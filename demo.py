@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Demo for the troll_classifier.py
 
