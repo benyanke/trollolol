@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+import re #regular expressions for punctuation stripping -TS
 from sklearn import svm
 
 import settings
@@ -53,14 +54,10 @@ def train_troll_classifier(words, training_data):
 
 def parse_insult_data_set_line(line, feature_words):
     feature_vector = [0 for x in xrange(len(feature_words))]
-    cols = line.split(",")
-    print cols
-    print cols[0]
+    cols = line.split(",", 1)
     cols[0] = cols[0].replace('"', '')
-    print cols[0]
-    label = 1 if cols[0] == '1' else -1
+    label = -1 if cols[0] == '-1' else 1  #Changed to explicitly check -1 = troll -TS
     content = cols[1].replace('"', '')
-    print content
 
     #I think convert_content_to_vector should work better here. -TS
     #list_of_words = content.split(" ")
@@ -79,6 +76,7 @@ def convert_content_to_vector(content, feature_words):
     list_of_words = content.split(" ")
     for index, feature in enumerate(feature_words):
         for word in list_of_words:
+	    re.sub(r'\W+', '', word) #Should strip punctuation from the word -TS
             if word.lower() == feature:
                 feature_vector[index] = 1
     return np.array(feature_vector)
@@ -121,8 +119,8 @@ def main():
     training_data = parse_file(training_data_file, func=parse_insult_data_set_line, feature_words=feature_words)
     test_data = parse_file(test_data_file, func=parse_insult_data_set_line, feature_words=feature_words)
     print "finished parsing files"
-    print training_data
-    print test_data
+    #print training_data
+    #print test_data
     linear_model = train_troll_classifier(feature_words, training_data)
     predictions = test_troll_classifier(linear_model, test_data)
     print predictions
