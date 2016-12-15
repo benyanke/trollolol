@@ -3,6 +3,7 @@
 import numpy as np
 import sys
 import re #regular expressions for punctuation stripping -TS
+from sklearn.externals import joblib #save models
 from sklearn import svm
 
 import settings
@@ -69,7 +70,7 @@ def parse_insult_data_set_line(line, feature_words):
     #        if word == feature:
     #            feature_vector[index] = 1
     #return np.array(feature_vector), label, content
-
+    print "Processed line."
     return convert_content_to_vector(content, feature_words), label, content
 
 
@@ -78,7 +79,7 @@ def convert_content_to_vector(content, feature_words):
     list_of_words = content.split(" ")
     for index, feature in enumerate(feature_words):
         for word in list_of_words:
-	    re.sub(r'\W+', '', word) #Should strip punctuation from the word -TS
+	    word = re.sub(r'\W+', '', word) #Should strip punctuation from the word -TS
             if word.lower() == feature:
                 feature_vector[index] = 1
     return np.array(feature_vector)
@@ -131,6 +132,7 @@ def main():
             print prediction, test_data[2][index]
     params = linear_model.get_params(deep=True)
     print params
+    joblib.dump(linear_model, 'TrollModel.pk1')
 
 
 if __name__ == '__main__':
